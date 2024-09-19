@@ -56,7 +56,6 @@ class ListaPostsFragment : Fragment() {
                                     userId
                                 )
                             findNavController().navigate(direcao)
-
                         },
                         { postId ->
                             val direcao =
