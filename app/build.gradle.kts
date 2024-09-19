@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    id("kotlin-kapt") apply true
+    id("androidx.navigation.safeargs.kotlin") version "2.8.1"
 }
 
 android {
@@ -33,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +52,23 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    val nav_version = "2.8.1"
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    val retrofitVersion = "2.11.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+}
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.8.1"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+    }
 }
