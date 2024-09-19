@@ -21,10 +21,18 @@
         android:id="@+id/postComentariosFragment"
         android:name="br.com.faculdadeimpacta.jsonplaceholder.PostComentariosFragment"
         android:label="fragment_post_comentarios"
-        tools:layout="@layout/fragment_post_comentarios" />
+        tools:layout="@layout/fragment_post_comentarios">
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/postAutorFragment"
         android:name="br.com.faculdadeimpacta.jsonplaceholder.PostAutorFragment"
         android:label="fragment_post_autor"
-        tools:layout="@layout/fragment_post_autor" />
+        tools:layout="@layout/fragment_post_autor">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

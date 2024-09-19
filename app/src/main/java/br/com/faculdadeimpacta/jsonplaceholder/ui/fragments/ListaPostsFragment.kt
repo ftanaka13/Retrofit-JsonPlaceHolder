@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.faculdadeimpacta.jsonplaceholder.data.models.Post
 import br.com.faculdadeimpacta.jsonplaceholder.data.remote.JsonPlaceHolderEndpoints
@@ -49,8 +50,21 @@ class ListaPostsFragment : Fragment() {
                 p1.body()?.let { lista ->
                     binding.recyclerViewPosts.adapter = PostAdapter(
                         lista,
-                        { a -> Log.e(a.toString(), a.toString()) },
-                        { a -> Log.e(a.toString(), a.toString()) })
+                        { userId ->
+                            val direcao =
+                                ListaPostsFragmentDirections.actionListaPostsFragmentToPostAutorFragment(
+                                    userId
+                                )
+                            findNavController().navigate(direcao)
+
+                        },
+                        { postId ->
+                            val direcao =
+                                ListaPostsFragmentDirections.actionListaPostsFragmentToPostComentariosFragment(
+                                    postId
+                                )
+                            findNavController().navigate(direcao)
+                        })
                     binding.recyclerViewPosts.layoutManager = LinearLayoutManager(activity)
                 }
 
