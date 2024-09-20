@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/postComentariosFragment"
-        android:name="br.com.faculdadeimpacta.jsonplaceholder.PostComentariosFragment"
+        android:name="br.com.faculdadeimpacta.jsonplaceholder.ui.fragments.PostComentariosFragment"
         android:label="fragment_post_comentarios"
         tools:layout="@layout/fragment_post_comentarios">
         <argument
