@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/postAutorFragment"
-        android:name="br.com.faculdadeimpacta.jsonplaceholder.PostAutorFragment"
+        android:name="br.com.faculdadeimpacta.jsonplaceholder.ui.fragments.PostAutorFragment"
         android:label="fragment_post_autor"
         tools:layout="@layout/fragment_post_autor">
         <argument
