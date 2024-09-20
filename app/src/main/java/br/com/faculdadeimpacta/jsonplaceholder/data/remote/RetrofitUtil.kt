@@ -5,12 +5,16 @@ import retrofit2.Retrofit
 
 class RetrofitUtil {
     companion object {
+        val instances = mutableMapOf<String, Retrofit>()
         fun getInstance(baseUrl: String, converter: Converter.Factory): Retrofit {
-            return Retrofit
-                .Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(converter)
-                .build()
+            if (!instances.keys.contains(baseUrl)) {
+                instances[baseUrl] = Retrofit
+                    .Builder()
+                    .baseUrl(baseUrl)
+                    .addConverterFactory(converter)
+                    .build()
+            }
+            return instances[baseUrl]!!
         }
     }
 }

@@ -42,6 +42,7 @@ class PostComentariosFragment : Fragment() {
             "https://jsonplaceholder.typicode.com/",
             GsonConverterFactory.create()
         )
+        Log.i("ListaPostsFragment", retrofit.toString())
         val endpoints = retrofit.create(JsonPlaceHolderEndpoints::class.java)
 
         endpoints.getPost(args.postId).enqueue(object : Callback<Post> {

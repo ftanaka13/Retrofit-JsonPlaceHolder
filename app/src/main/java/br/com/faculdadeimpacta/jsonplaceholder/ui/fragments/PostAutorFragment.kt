@@ -38,6 +38,7 @@ class PostAutorFragment : Fragment() {
             "https://jsonplaceholder.typicode.com/",
             GsonConverterFactory.create()
         )
+        Log.i("ListaPostsFragment", retrofit.toString())
         val endpoints = retrofit.create(JsonPlaceHolderEndpoints::class.java)
 
         endpoints.getAutor(args.userId).enqueue(object : Callback<User> {
